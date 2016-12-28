@@ -11,7 +11,15 @@ namespace EEGprocessing
 {
     class MyConst
     {
-
+        /// <summary>
+        /// Внесука я тут коменты с домашнего компа 28.12.16 и попробую-ка их отловить с рабочего подгрузив репозиторий
+        /// </summary>
+        /// <param name="f"></param>
+        /// <param name="N"></param>
+        /// <param name="g"></param>
+        /// <param name="M"></param>
+        /// <param name="c"></param>
+        /// <returns></returns>
         [DllImport("CUFT.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern int cuftGetConvolution([MarshalAs(UnmanagedType.LPArray)] float[] f, int N,
             [MarshalAs(UnmanagedType.LPArray)] float[] g, int M, [MarshalAs(UnmanagedType.LPArray)] float[] c);
