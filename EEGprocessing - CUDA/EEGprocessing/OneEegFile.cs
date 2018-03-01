@@ -98,7 +98,7 @@ namespace EEGprocessing
                 {
                     try
                     {
-                        value = line.Split('\t').Select(n => float.Parse(n)).ToArray();
+                        value = line.Split('\t').Select(n => float.Parse(n.Replace(',','.'))).ToArray();
                     }
                     catch (Exception)
                     {

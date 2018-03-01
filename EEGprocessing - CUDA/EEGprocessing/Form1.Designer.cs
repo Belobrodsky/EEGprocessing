@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -259,11 +259,11 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(184, 3);
             this.chart1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.chart1.Name = "chart1";
@@ -491,6 +491,8 @@
             // ChBoxFlikker
             // 
             this.ChBoxFlikker.AutoSize = true;
+            this.ChBoxFlikker.Checked = true;
+            this.ChBoxFlikker.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ChBoxFlikker.Location = new System.Drawing.Point(2, 3);
             this.ChBoxFlikker.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.ChBoxFlikker.Name = "ChBoxFlikker";
@@ -502,6 +504,8 @@
             // chBoxBlue
             // 
             this.chBoxBlue.AutoSize = true;
+            this.chBoxBlue.Checked = true;
+            this.chBoxBlue.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chBoxBlue.Location = new System.Drawing.Point(2, 25);
             this.chBoxBlue.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.chBoxBlue.Name = "chBoxBlue";
@@ -513,6 +517,8 @@
             // chBoxCrossingover
             // 
             this.chBoxCrossingover.AutoSize = true;
+            this.chBoxCrossingover.Checked = true;
+            this.chBoxCrossingover.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chBoxCrossingover.Location = new System.Drawing.Point(2, 47);
             this.chBoxCrossingover.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.chBoxCrossingover.Name = "chBoxCrossingover";
@@ -536,8 +542,6 @@
             // chBoxCUDA
             // 
             this.chBoxCUDA.AutoSize = true;
-            this.chBoxCUDA.Checked = true;
-            this.chBoxCUDA.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chBoxCUDA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chBoxCUDA.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.chBoxCUDA.Location = new System.Drawing.Point(2, 135);

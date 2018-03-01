@@ -73,6 +73,8 @@ namespace EEGprocessing
                     //теперь парсим этот файл, внося нужную информацию
                     // в теперь уже РЕАДЬНЫЙ класс FILE
                     myOnefilesignal.LoadDataFromFile(filename, (int)numericUpDown2.Value - 1);  //второй стообец указывает какой по счету столбец, начиная с 1 будет закружен для анализа из ЭЭГ файла
+                    //MessageBox.Show(myOnefilesignal.chanels[0].Count.ToString());
+                    
                     mainstate.MyFiles.Add(myOnefilesignal); //Добавили в наш класс все сигналы
                 } //foreach по всем файлам
             } // if openFiledialog
@@ -122,9 +124,21 @@ namespace EEGprocessing
                     //то предкам присвоим -1;
                     newfilter.fatherID = -1;
                     newfilter.motherID = -1;
-                    newfilter.LoadFilterFromFile(filename);
-                    newfilter.Normalize();
-                    allfilters.generationList[currentgeneration].Add(newfilter);
+
+                    Exception ex1 = newfilter.LoadFilterFromFile(filename);
+                    if (ex1 != null)
+                    {
+                        MessageBox.Show(ex1.Message);
+                    }
+
+                    else
+                    {
+                        newfilter.Normalize();
+                        allfilters.generationList[currentgeneration].Add(newfilter);
+                    }
+
+                   // MessageBox.Show(newfilter.data.Count.ToString());
+
                 }  //foreach по всем файлам
             } //опенфайл диалог загрузки о поколения фильтров
 
@@ -278,6 +292,7 @@ namespace EEGprocessing
                     //теперь парсим этот файл, внося нужную информацию
                     // в теперь уже РЕАЛЬНЫЙ класс FILE
                     myOnefilesignal.LoadDataFromFile(filename, (int)numericUpDown2.Value - 1);
+                   // MessageBox.Show(myOnefilesignal.chanels[0].Count.ToString());
                     oneOtherState.MyFiles.Add(myOnefilesignal); //Добавили в наш экземпляр класса все сигналы              
                 } //foreach по всем файлам
 

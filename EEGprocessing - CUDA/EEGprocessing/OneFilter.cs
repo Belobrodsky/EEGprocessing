@@ -170,7 +170,7 @@ namespace EEGprocessing
             this._norm = A;
         }
 
-        public void LoadFilterFromFile(string filename)
+        public Exception LoadFilterFromFile(string filename)
         {
 
             this._filterFilename = filename;
@@ -188,12 +188,22 @@ namespace EEGprocessing
                 {
                     try
                     {
-                        value = float.Parse(line);
+                        value = float.Parse(line.Replace(',','.'));
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-                        value = MyConst.ERRORVALUE;
+
+                        try
+                        {
+                            value = float.Parse(line.Replace('.', ','));
+                        }
+                        catch (Exception ex1)
+                        {
+                            value = MyConst.ERRORVALUE;
+                            return ex1;
+                        }
                     }
+
                     if (value != MyConst.ERRORVALUE)
                     {
                         i++;
@@ -207,6 +217,7 @@ namespace EEGprocessing
 
             this._countOfFilterData = i;
             myReader.Close();
+            return null;
         }
 
         public List<float> data
