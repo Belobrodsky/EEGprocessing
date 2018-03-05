@@ -726,10 +726,67 @@ namespace EEGprocessing
 
 
 
+            // ЗАПИСЬ ОТ 180305 ДОБАВЛЕНИЕ И СОХРАНЕНИЕ В ГРАФИЧЕСКИЙ ФАЙЛ СПЕКТРОВ ИСХОДНЫХ СИГНАЛОВ, НАЧАЛЬНЫХ И КОНЕЧНЫХ ФИЛЬТРОВ
 
+            //пробежимся по всем известным файлам сигналов стостояния №1
+            foreach (var item in mainstate.MyFiles)
+            {
+          
+
+                FurierSpector.FurierAnalys FA = new FurierSpector.FurierAnalys(item.chanels[0]);
+                FA.Do();
+                this.AddNewFAtoChart(FA, Color.Red, 8, SeriesChartType.Column, 1);
+
+            }
 
 
         }
+
+
+        private void AddNewFAtoChart(FurierSpector.FurierAnalys FA, Color cl, int width, SeriesChartType sct, int num)
+        {
+            Series newFurie = new Series();
+            newFurie.ChartType = sct;
+            newFurie.Color = cl;
+            newFurie.MarkerSize = width;
+
+            newFurie.YAxisType = AxisType.Primary;
+
+
+            int M = FA.ReFurier.Count / 2;
+
+            int tDescret = (int)numericUpDown6.Value;
+
+
+            for (int i = 0; i < M; i++)
+            {
+                //  t = 500 * i / M;
+                newFurie.Points.AddXY((i + 1) * tDescret / FA.ReFurier.Count, FA.ReFurier[i] * FA.ReFurier[i] + FA.ImFurier[i] * FA.ImFurier[i]);
+                //sw2.WriteLine(FA.ReFurier[i] * FA.ReFurier[i] + FA.ImFurier[i] * FA.ImFurier[i]);
+            }
+
+            // sw2.Close();
+
+            chart2.Series.Add(newFurie);
+            //  chart1.ChartAreas[0].AxisX.Minimum = 0;
+            //chart1.ChartAreas[0].AxisX.
+            //  chart1.ChartAreas[0].AxisX.MajorGrid.Interval = 10;
+            // chart1.ChartAreas[0].AxisX.LabelStyle.Interval = 10;
+            //   chart1.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
+            //   chart1.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.Gray;
+
+            chart2.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
+            chart2.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.Gray;
+
+            //  chart1.ChartAreas[0].AxisX.Maximum = 100;
+            //   chart1.ChartAreas[0].AxisY.IsLogarithmic = true;
+            //  chart1.ChartAreas[0].AxisY.Minimum = 1E-2;
+
+
+        }
+
+
+
 
         private void LoadRoc1_Click(object sender, EventArgs e)
         {

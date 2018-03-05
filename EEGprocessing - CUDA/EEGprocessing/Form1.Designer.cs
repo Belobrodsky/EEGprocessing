@@ -73,6 +73,7 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -84,6 +85,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -290,17 +292,16 @@
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 10;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.523809F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.523809F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.523809F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.523809F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.523809F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.523809F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.523809F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.523809F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.523809F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.09918F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.554139F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.37579F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.37579F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.09918F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.09918F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.09918F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.09918F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.09918F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.09918F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(178, 225);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
@@ -311,14 +312,14 @@
             this.label1.Location = new System.Drawing.Point(2, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 21);
+            this.label1.Size = new System.Drawing.Size(174, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Id фильтра";
             // 
             // numericUpDown1
             // 
             this.numericUpDown1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown1.Location = new System.Drawing.Point(2, 24);
+            this.numericUpDown1.Location = new System.Drawing.Point(2, 23);
             this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             500000,
@@ -332,10 +333,10 @@
             // drawFilterById
             // 
             this.drawFilterById.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.drawFilterById.Location = new System.Drawing.Point(2, 56);
+            this.drawFilterById.Location = new System.Drawing.Point(2, 44);
             this.drawFilterById.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.drawFilterById.Name = "drawFilterById";
-            this.drawFilterById.Size = new System.Drawing.Size(174, 15);
+            this.drawFilterById.Size = new System.Drawing.Size(174, 24);
             this.drawFilterById.TabIndex = 2;
             this.drawFilterById.Text = "Добавить новый фильтр";
             this.drawFilterById.UseVisualStyleBackColor = true;
@@ -344,7 +345,7 @@
             // numericUpDown4
             // 
             this.numericUpDown4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown4.Location = new System.Drawing.Point(2, 203);
+            this.numericUpDown4.Location = new System.Drawing.Point(2, 204);
             this.numericUpDown4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.numericUpDown4.Maximum = new decimal(new int[] {
             1000,
@@ -363,10 +364,10 @@
             // addNewFilterToGraph
             // 
             this.addNewFilterToGraph.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addNewFilterToGraph.Location = new System.Drawing.Point(2, 77);
+            this.addNewFilterToGraph.Location = new System.Drawing.Point(2, 74);
             this.addNewFilterToGraph.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.addNewFilterToGraph.Name = "addNewFilterToGraph";
-            this.addNewFilterToGraph.Size = new System.Drawing.Size(174, 15);
+            this.addNewFilterToGraph.Size = new System.Drawing.Size(174, 24);
             this.addNewFilterToGraph.TabIndex = 3;
             this.addNewFilterToGraph.Text = "Очистить все ";
             this.addNewFilterToGraph.UseVisualStyleBackColor = true;
@@ -376,10 +377,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Location = new System.Drawing.Point(2, 179);
+            this.label4.Location = new System.Drawing.Point(2, 181);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(174, 21);
+            this.label4.Size = new System.Drawing.Size(174, 20);
             this.label4.TabIndex = 5;
             this.label4.Text = "Кол-во в поколении";
             // 
@@ -387,17 +388,17 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(2, 95);
+            this.label2.Location = new System.Drawing.Point(2, 101);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(174, 21);
+            this.label2.Size = new System.Drawing.Size(174, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "Номер канала";
             // 
             // numericUpDown2
             // 
             this.numericUpDown2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown2.Location = new System.Drawing.Point(2, 119);
+            this.numericUpDown2.Location = new System.Drawing.Point(2, 124);
             this.numericUpDown2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.numericUpDown2.Maximum = new decimal(new int[] {
             21,
@@ -417,17 +418,17 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(2, 137);
+            this.label3.Location = new System.Drawing.Point(2, 141);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(174, 21);
+            this.label3.Size = new System.Drawing.Size(174, 20);
             this.label3.TabIndex = 7;
             this.label3.Text = "Кол-во поколений";
             // 
             // numericUpDown3
             // 
             this.numericUpDown3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown3.Location = new System.Drawing.Point(2, 161);
+            this.numericUpDown3.Location = new System.Drawing.Point(2, 164);
             this.numericUpDown3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.numericUpDown3.Maximum = new decimal(new int[] {
             1001,
@@ -471,6 +472,7 @@
             this.tableLayoutPanel3.Controls.Add(this.radioButton2, 0, 8);
             this.tableLayoutPanel3.Controls.Add(this.radioButton1, 0, 7);
             this.tableLayoutPanel3.Controls.Add(this.numericUpDown5, 0, 5);
+            this.tableLayoutPanel3.Controls.Add(this.numericUpDown6, 0, 3);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(2, 234);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -604,6 +606,24 @@
             0,
             0});
             // 
+            // numericUpDown6
+            // 
+            this.numericUpDown6.AccessibleDescription = "ывауфа";
+            this.numericUpDown6.Location = new System.Drawing.Point(3, 69);
+            this.numericUpDown6.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDown6.Name = "numericUpDown6";
+            this.numericUpDown6.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown6.TabIndex = 16;
+            this.numericUpDown6.Value = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -629,6 +649,7 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -679,6 +700,7 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.ToolStripMenuItem контрольнаяПроверкаToolStripMenuItem;
         private System.Windows.Forms.NumericUpDown numericUpDown5;
+        private System.Windows.Forms.NumericUpDown numericUpDown6;
     }
 }
 
