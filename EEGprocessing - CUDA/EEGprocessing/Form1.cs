@@ -17,7 +17,7 @@ namespace EEGprocessing
     {
         private ListOfEegFiles mainstate; //= new MyMainStateData();
 
-        private ListOfEegFiles secondstate;  //ПОКА СОМНЕНИЯ ГДЕ ЭТО ВООБЩЕ ИСПОЛЬЗУЕТСЯ... ВОЗМОЖНО МОЖНО СТЕРЕТЬ
+       // private ListOfEegFiles secondstate;  //ПОКА СОМНЕНИЯ ГДЕ ЭТО ВООБЩЕ ИСПОЛЬЗУЕТСЯ... ВОЗМОЖНО МОЖНО СТЕРЕТЬ
 
         private ListOfEegFiles controlCheck;
 
@@ -47,7 +47,7 @@ namespace EEGprocessing
         {
             //СРАЗУ ИНИЦИАЛИЗИРУЕМ ВСЕ СВОИ ОБЪЕКТЫ, ЧТОБЫ ОНИ БЫЛИ ДОСТУПНЫ ВЕЗДЕ
             this.mainstate = new ListOfEegFiles();
-            this.secondstate = new ListOfEegFiles(); //промежуточная переменная для каждого состояния
+           // this.secondstate = new ListOfEegFiles(); //промежуточная переменная для каждого состояния
             this.controlCheck = new ListOfEegFiles();
 
             this.allOtherStates = new List<ListOfEegFiles>();
@@ -728,16 +728,15 @@ namespace EEGprocessing
 
             // ЗАПИСЬ ОТ 180305 ДОБАВЛЕНИЕ И СОХРАНЕНИЕ В ГРАФИЧЕСКИЙ ФАЙЛ СПЕКТРОВ ИСХОДНЫХ СИГНАЛОВ, НАЧАЛЬНЫХ И КОНЕЧНЫХ ФИЛЬТРОВ
 
-            //пробежимся по всем известным файлам сигналов стостояния №1
-            foreach (var item in mainstate.MyFiles)
-            {
-          
 
-                FurierSpector.FurierAnalys FA = new FurierSpector.FurierAnalys(item.chanels[0]);
-                FA.Do();
-                this.AddNewFAtoChart(FA, Color.Red, 8, SeriesChartType.Column, 1);
+            нарисоватьСпектрToolStripMenuItem_Click(this, null);
 
-            }
+           // MessageBox.Show(secondstate.MyFiles.Count.ToString());
+
+
+
+
+
 
 
         }
@@ -761,7 +760,7 @@ namespace EEGprocessing
             for (int i = 0; i < M; i++)
             {
                 //  t = 500 * i / M;
-                newFurie.Points.AddXY((i + 1) * tDescret / FA.ReFurier.Count, FA.ReFurier[i] * FA.ReFurier[i] + FA.ImFurier[i] * FA.ImFurier[i]);
+                newFurie.Points.AddXY((i + 1) * tDescret / FA.ReFurier.Count, (FA.ReFurier[i] * FA.ReFurier[i] + FA.ImFurier[i] * FA.ImFurier[i])/num);
                 //sw2.WriteLine(FA.ReFurier[i] * FA.ReFurier[i] + FA.ImFurier[i] * FA.ImFurier[i]);
             }
 
@@ -1201,7 +1200,60 @@ namespace EEGprocessing
 
 
 
-        } //CalcAndCreate
+        }
+
+        private void нарисоватьСпектрToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+           // chart2.ChartAreas[0].AxisY.Maximum = 200;
+
+
+
+            //пробежимся по всем известным файлам сигналов стостояния №1
+            foreach (var item in mainstate.MyFiles)
+            {
+
+
+                FurierSpector.FurierAnalys FA = new FurierSpector.FurierAnalys(item.chanels[0]);
+                FA.Do();
+                this.AddNewFAtoChart(FA, Color.Red, 8, SeriesChartType.Column, 1000);
+
+            }
+
+
+
+
+            foreach (var item in allOtherStates)
+            {
+
+                foreach (var item2 in item.MyFiles)
+                {
+
+                    // MessageBox.Show(item.chanels[0].Count.ToString());
+                    FurierSpector.FurierAnalys FA = new FurierSpector.FurierAnalys(item2.chanels[0]);
+                    FA.Do();
+                    this.AddNewFAtoChart(FA, Color.Blue, 8, SeriesChartType.Column, 1000);
+                }
+            }
+
+
+            foreach (var item in allfilters.generationList[0])
+            {
+                FurierSpector.FurierAnalys FA = new FurierSpector.FurierAnalys(item.data);
+                FA.Do();
+                this.AddNewFAtoChart(FA, Color.Green, 8, SeriesChartType.Column,1);
+            }
+
+            foreach (var item in allfilters.generationList[allfilters.generationList.Length - 1])
+            {
+                FurierSpector.FurierAnalys FA = new FurierSpector.FurierAnalys(item.data);
+                FA.Do();
+                this.AddNewFAtoChart(FA, Color.Black, 8, SeriesChartType.Column, 1);
+            }
+
+
+            chart2.SaveImage("Spectr.png",ChartImageFormat.Png);
+        } //Нарисовать спектры
 
 
     } //класс FORM1
