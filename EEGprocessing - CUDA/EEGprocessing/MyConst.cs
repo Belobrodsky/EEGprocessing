@@ -199,16 +199,28 @@ namespace EEGprocessing
             return sum;
         }
 
-        public static float RocCountOfInvolveArray(List<float> files, float maxvalue)
+        public static float RocCountOfInvolveArrayBig(List<float> files, float maxvalue)
         {
             float sum = (float)0;
 
           
                 foreach (float myf in files)
                 {
-                    if (Math.Abs(myf) <= Math.Abs(maxvalue)) sum = sum + 1;
+                    if (Math.Abs(myf) >= Math.Abs(maxvalue)) sum = sum + 1;
                 }
               return sum;
+        }
+
+        public static float RocCountOfInvolveArraySmall(List<float> files, float maxvalue)
+        {
+            float sum = (float)0;
+
+
+            foreach (float myf in files)
+            {
+                if (Math.Abs(myf) < Math.Abs(maxvalue)) sum = sum + 1;
+            }
+            return sum;
         }
 
     }

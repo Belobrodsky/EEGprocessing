@@ -264,7 +264,7 @@ namespace EEGprocessing
 
             for (int j = 0; j < this._generationList[numOfGeneration][0].data.Count; j++)
             {
-                myWriter.Write(";");
+                //myWriter.Write(";");
 
                 for (int i = 0; i < MyConst.FILTERINGENERATION; i++)
                 {

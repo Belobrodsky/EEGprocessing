@@ -1,9 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EEGprocessing", "EEGprocessing\EEGprocessing.csproj", "{D3861C8F-87D8-4406-9F7E-2DEE9FCE6592}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ECE143C5-D9E2-4BB6-A94C-1A9B0CEEBCAA}"
+	ProjectSection(SolutionItems) = preProject
+		EEGprocessing\bin\Debug\CUFT.dll = EEGprocessing\bin\Debug\CUFT.dll
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

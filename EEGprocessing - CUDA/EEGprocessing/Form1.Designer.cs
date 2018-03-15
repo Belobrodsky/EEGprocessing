@@ -40,6 +40,7 @@
             this.Load0genOfFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.действияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CalcAndCreate = new System.Windows.Forms.ToolStripMenuItem();
+            this.нарисоватьСпектрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.печатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.фильтрыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.print0genFilter = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,7 +76,6 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-            this.нарисоватьСпектрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -166,6 +166,13 @@
             this.CalcAndCreate.Size = new System.Drawing.Size(226, 22);
             this.CalcAndCreate.Text = "Посчитать и сгенерировать";
             this.CalcAndCreate.Click += new System.EventHandler(this.CalcAndCreate_Click);
+            // 
+            // нарисоватьСпектрToolStripMenuItem
+            // 
+            this.нарисоватьСпектрToolStripMenuItem.Name = "нарисоватьСпектрToolStripMenuItem";
+            this.нарисоватьСпектрToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+            this.нарисоватьСпектрToolStripMenuItem.Text = "Нарисовать спектр";
+            this.нарисоватьСпектрToolStripMenuItem.Click += new System.EventHandler(this.нарисоватьСпектрToolStripMenuItem_Click);
             // 
             // печатьToolStripMenuItem
             // 
@@ -632,13 +639,6 @@
             0,
             0,
             0});
-            // 
-            // нарисоватьСпектрToolStripMenuItem
-            // 
-            this.нарисоватьСпектрToolStripMenuItem.Name = "нарисоватьСпектрToolStripMenuItem";
-            this.нарисоватьСпектрToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
-            this.нарисоватьСпектрToolStripMenuItem.Text = "Нарисовать спектр";
-            this.нарисоватьСпектрToolStripMenuItem.Click += new System.EventHandler(this.нарисоватьСпектрToolStripMenuItem_Click);
             // 
             // Form1
             // 

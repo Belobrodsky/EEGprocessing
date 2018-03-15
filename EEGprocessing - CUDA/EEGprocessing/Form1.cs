@@ -777,6 +777,14 @@ namespace EEGprocessing
             chart2.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
             chart2.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.Gray;
 
+
+
+
+
+            chart2.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
+            chart2.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.Gray;
+
+
             //  chart1.ChartAreas[0].AxisX.Maximum = 100;
             //   chart1.ChartAreas[0].AxisY.IsLogarithmic = true;
             //  chart1.ChartAreas[0].AxisY.Minimum = 1E-2;
@@ -850,20 +858,47 @@ namespace EEGprocessing
                 string line = "";
                 float value;// = new float[MyConst.TOTALCOUNTOFCHANEL];
 
+                mr.ReadLine();
+                mr.ReadLine();
+                mr.ReadLine();
+                mr.ReadLine();
+                mr.ReadLine();
 
+
+                string str;
                 while (line != null)// (i < MyConst.FILELENGTHLIMIT)//(line!=null)
                 {
                     line = mr.ReadLine();
                     if (line != null)
                     {
+                        //try
+                        //{
+                        //    value = line.Split('\t').Select(n => float.Parse(n)).ToArray()[0];
+
+                        //}
+                        //catch (Exception)
+                        //{
+                        //    value = MyConst.ERRORVALUE;
+                        //}
                         try
                         {
-                            value = float.Parse(line); //line.Split('\t').Select(n => float.Parse(n)).ToArray();
-
+                            
+                            str=line.Replace(',', '.').Split(';').ToArray()[0];
+                            value = float.Parse(str);
                         }
-                        catch (Exception)
+                        catch (Exception ex)
                         {
-                            value = MyConst.ERRORVALUE;
+
+                            try
+                            {
+                                str = line.Replace('.', ',').Split(';').ToArray()[0];
+                                value = float.Parse(str);
+                            }
+                            catch (Exception ex1)
+                            {
+                                value = MyConst.ERRORVALUE;
+                            
+                            }
                         }
 
 
@@ -907,7 +942,7 @@ namespace EEGprocessing
             }
 
 
-
+            MessageBox.Show("Загружено значений фильтра: " + ROCfilter.Count.ToString());
 
         }
 
@@ -919,7 +954,7 @@ namespace EEGprocessing
             //ROCsecondstate = new ListOfEegFiles();
             //ROCfilter = new List<float>();
 
-            //теперь для Roc-анализа нужно посчитать свертки все файлов с эти конкретно фильтром
+            //теперь для Roc-анализа нужно посчитать свертки всех файлов с этим конкретно фильтром
             int aaa = new int();
 
 
@@ -938,6 +973,8 @@ namespace EEGprocessing
                     currmainfile.convolve_chanels[0] = c.ToList<float>();
                 }
                 currmainfile.CalcConvolutionOneChanel(ROCfilter, 0, -2, chBoxCUDA.Checked);
+
+
                 mywr2.WriteLine(Math.Abs(currmainfile.MyOneChanelStatostic[0].convolve_max) + ";1");
                 temp.Add(currmainfile.MyOneChanelStatostic[0].convolve_max);
 
@@ -976,23 +1013,78 @@ namespace EEGprocessing
 
             float AbsCountMainState = (float)ROCmainstate.MyFiles.Count;// *ROCmainstate.MyFiles[0].convolve_chanels[0].Count;
             float AbsCountSecondState = (float)ROCsecondstate.MyFiles.Count;// *ROCsecondstate.MyFiles[0].convolve_chanels[0].Count;
-
-
             float RocCountMain = 0;
             float RocCountOther = 0;
-
             float sensor = new float();
             float specify = new float();
-
+              /////Эта первый способ определения который был реализован давно.ОН основан на подсчете отсечек от самого максимального значения значения сверток среди двух групп файлов
             StreamWriter mywr = new StreamWriter("Roc_Anylize.csv", false, Encoding.GetEncoding("Windows-1251"));
+            //StreamWriter mywr_ = new StreamWriter("Roc_Anylize.csv", false, Encoding.GetEncoding("Windows-1251"));
+           ///нарисуем чувствительность и специфичность на графике
+            ///
+            chart1.Series.Clear();
+            chart1.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
+            chart1.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
+           // chart1.Legends[0].
+            Series sen = new Series();
+            sen.LegendText = "Чувствительность";
+            sen.ChartType = SeriesChartType.Line;
+            sen.Color = Color.Blue;
+            sen.MarkerSize = 10;
+            sen.YAxisType = AxisType.Primary;
+            Series spec = new Series();
+            spec.LegendText = "Специфичность";
+            spec.ChartType = SeriesChartType.Line;
+            spec.Color = Color.Red;
+            spec.MarkerSize = 10;
+            spec.YAxisType = AxisType.Primary;
+           // chart1.Legends[0].Title = "При пересечении спектров на 50%";
+            chart1.ChartAreas[0].AxisX.Title = "Процент отсечки от Max, %";
+            chart1.ChartAreas[0].AxisY.Title = "%";
 
-            for (int i = 10; i < 101; i = i + 10)
+
+            //for (int i = 0; i < allfilters.generationList.Length; i++)
+            //{
+            //    sen.Points.AddXY(i, allfilters.generationList[i]._maxfitness3);
+            //}
+
+
+            //  t = 500 * i / M;
+
+            //sw2.WriteLine(FA.ReFurier[i] * FA.ReFurier[i] + FA.ImFurier[i] * FA.ImFurier[i]);
+
+
+            // sw2.Close();
+
+            
+
+
+            for (int i = 0; i < 101; i = i + 1)
             {
                 mywr.WriteLine();
                 mywr.WriteLine("Порог " + i.ToString() + "% от максимального значения;");
 
-                RocCountMain = MyConst.RocCountOfInvolveArray(tempMain, i * AbsMaxConv / 100);
-                RocCountOther = AbsCountSecondState - MyConst.RocCountOfInvolveArray(tempOther, i * AbsMaxConv / 100);
+
+                if (tempMain.Average() > tempOther.Average())
+                {
+                    RocCountMain = MyConst.RocCountOfInvolveArrayBig(tempMain, i * AbsMaxConv / 100);
+                    RocCountOther = AbsCountSecondState - MyConst.RocCountOfInvolveArrayBig(tempOther, i * AbsMaxConv / 100);
+
+                }
+                else
+                {
+                    RocCountMain = MyConst.RocCountOfInvolveArraySmall(tempMain, i * AbsMaxConv / 100);
+                    RocCountOther = AbsCountSecondState - MyConst.RocCountOfInvolveArraySmall(tempOther, i * AbsMaxConv / 100);               
+                
+                
+                }
+
+               
+
+
+
+
+
 
                 mywr.Write(" ;ИС1;"); mywr.WriteLine("ИС2;");
                 mywr.Write("ОС1;"); mywr.Write(RocCountMain + ";"); mywr.WriteLine(AbsCountSecondState - RocCountOther + ";");
@@ -1000,14 +1092,22 @@ namespace EEGprocessing
 
                 sensor = (float)(RocCountMain / AbsCountMainState) * 100;
                 specify = (float)(RocCountOther / AbsCountSecondState) * 100;
+
+
                 mywr.WriteLine("Чувствительность = ;" + sensor.ToString());
                 mywr.WriteLine("Специфичность =;" + specify.ToString());
+
+                sen.Points.AddXY(i, sensor);
+                spec.Points.AddXY(i, specify);
+
+
             }
-
-
-
+            
             mywr.Close();
 
+            chart1.Series.Add(sen);
+            chart1.Series.Add(spec);
+            chart1.SaveImage("ROC.png", ChartImageFormat.Png);
 
 
 
@@ -1216,7 +1316,7 @@ namespace EEGprocessing
 
                 FurierSpector.FurierAnalys FA = new FurierSpector.FurierAnalys(item.chanels[0]);
                 FA.Do();
-                this.AddNewFAtoChart(FA, Color.Red, 8, SeriesChartType.Column, 1000);
+                this.AddNewFAtoChart(FA, Color.Red, 8, SeriesChartType.Line, 1000);
 
             }
 
@@ -1232,24 +1332,85 @@ namespace EEGprocessing
                     // MessageBox.Show(item.chanels[0].Count.ToString());
                     FurierSpector.FurierAnalys FA = new FurierSpector.FurierAnalys(item2.chanels[0]);
                     FA.Do();
-                    this.AddNewFAtoChart(FA, Color.Blue, 8, SeriesChartType.Column, 1000);
+                    this.AddNewFAtoChart(FA, Color.Blue, 8, SeriesChartType.Line, 1000);
                 }
             }
 
 
-            foreach (var item in allfilters.generationList[0])
-            {
-                FurierSpector.FurierAnalys FA = new FurierSpector.FurierAnalys(item.data);
-                FA.Do();
-                this.AddNewFAtoChart(FA, Color.Green, 8, SeriesChartType.Column,1);
-            }
 
-            foreach (var item in allfilters.generationList[allfilters.generationList.Length - 1])
-            {
-                FurierSpector.FurierAnalys FA = new FurierSpector.FurierAnalys(item.data);
-                FA.Do();
-                this.AddNewFAtoChart(FA, Color.Black, 8, SeriesChartType.Column, 1);
-            }
+    
+                FurierSpector.FurierAnalys FA1 = new FurierSpector.FurierAnalys(allfilters.generationList[1][0].data);
+                FA1.Do();
+                this.AddNewFAtoChart(FA1, Color.Green, 8, SeriesChartType.Line, 1);
+
+
+                FurierSpector.FurierAnalys FA2 = new FurierSpector.FurierAnalys(allfilters.generationList[allfilters.generationList.Length-1][0].data);
+                FA2.Do();
+                this.AddNewFAtoChart(FA2, Color.Black, 8, SeriesChartType.Line, 1);
+         
+
+
+
+
+            //нарисыем на график как изменялось значения фитнесс функции в зависимости от номера поколений
+
+
+                Series myser = new Series();
+                myser.ChartType = SeriesChartType.Line;
+                myser.Color = Color.Black;
+                myser.MarkerSize = 10;
+
+                myser.YAxisType = AxisType.Primary;
+
+              for (int i = 0; i < allfilters.generationList.Length; i++)
+			{
+			 myser.Points.AddXY(i,allfilters.generationList[i]._maxfitness3);
+			}
+                  
+                   
+                                           //  t = 500 * i / M;
+                        
+                        //sw2.WriteLine(FA.ReFurier[i] * FA.ReFurier[i] + FA.ImFurier[i] * FA.ImFurier[i]);
+                    
+                
+                    // sw2.Close();
+
+                    chart1.Series.Add(myser);
+                    //  chart1.ChartAreas[0].AxisX.Minimum = 0;
+                    //chart1.ChartAreas[0].AxisX.
+                    //  chart1.ChartAreas[0].AxisX.MajorGrid.Interval = 10;
+                    // chart1.ChartAreas[0].AxisX.LabelStyle.Interval = 10;
+                    //   chart1.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
+                    //   chart1.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.Gray;
+
+                    chart1.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
+                    chart1.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.Gray;
+
+                    chart1.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
+                    chart1.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.Gray;
+
+
+
+            //foreach (var item in allfilters.generationList[allfilters.generationList.Length - 1])
+            //{
+            //    FurierSpector.FurierAnalys FA = new FurierSpector.FurierAnalys(item.data);
+            //    FA.Do();
+            //    this.AddNewFAtoChart(FA, Color.Black, 8, SeriesChartType.Line, 1);
+            //}
+
+            //foreach (var item in allfilters.generationList[0])
+            //{
+            //    FurierSpector.FurierAnalys FA = new FurierSpector.FurierAnalys(item.data);
+            //    FA.Do();
+            //    this.AddNewFAtoChart(FA, Color.Green, 8, SeriesChartType.Line, 1);
+            //}
+
+            //foreach (var item in allfilters.generationList[allfilters.generationList.Length - 1])
+            //{
+            //    FurierSpector.FurierAnalys FA = new FurierSpector.FurierAnalys(item.data);
+            //    FA.Do();
+            //    this.AddNewFAtoChart(FA, Color.Black, 8, SeriesChartType.Line, 1);
+            //}
 
 
             chart2.SaveImage("Spectr.png",ChartImageFormat.Png);
