@@ -1107,6 +1107,12 @@ namespace EEGprocessing
 
             chart1.Series.Add(sen);
             chart1.Series.Add(spec);
+            chart1.ChartAreas[0].AxisX.Minimum = 0;
+            chart1.ChartAreas[0].AxisX.MajorGrid.Interval = 5;
+            chart1.ChartAreas[0].AxisX.MajorTickMark.Interval = 10;
+
+            //chart1.ChartAreas[0].AxisY.MajorGrid.Interval = 5;
+            chart1.ChartAreas[0].AxisX.MajorTickMark.Interval = 10;
             chart1.SaveImage("ROC.png", ChartImageFormat.Png);
 
 
