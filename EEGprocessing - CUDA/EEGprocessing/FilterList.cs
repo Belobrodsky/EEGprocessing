@@ -193,6 +193,7 @@ namespace EEGprocessing
             for (int j = 0; j < this[filterIndex].data.Count; j++) //Проходимся по длине каждого фильтра
             {
                 randarr.Add(r.NextDouble());
+
                 if (j > MyConst.BAND_FOR_FLIKKER_NOIZE)
                 {
                     for (int k = j; k > j - MyConst.BAND_FOR_FLIKKER_NOIZE; k--)

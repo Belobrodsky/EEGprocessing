@@ -107,7 +107,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(913, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1028, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -266,7 +266,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(913, 463);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1028, 591);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // chart1
@@ -276,10 +276,10 @@
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(184, 3);
+            this.chart1.Location = new System.Drawing.Point(207, 3);
             this.chart1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.chart1.Name = "chart1";
-            this.chart1.Size = new System.Drawing.Size(727, 225);
+            this.chart1.Size = new System.Drawing.Size(819, 289);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
@@ -312,7 +312,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.09918F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.09918F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.09918F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(178, 225);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(201, 225);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // label1
@@ -322,7 +322,7 @@
             this.label1.Location = new System.Drawing.Point(2, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 20);
+            this.label1.Size = new System.Drawing.Size(197, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Id фильтра";
             // 
@@ -337,7 +337,7 @@
             0,
             0});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(174, 20);
+            this.numericUpDown1.Size = new System.Drawing.Size(197, 20);
             this.numericUpDown1.TabIndex = 1;
             // 
             // drawFilterById
@@ -346,7 +346,7 @@
             this.drawFilterById.Location = new System.Drawing.Point(2, 44);
             this.drawFilterById.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.drawFilterById.Name = "drawFilterById";
-            this.drawFilterById.Size = new System.Drawing.Size(174, 24);
+            this.drawFilterById.Size = new System.Drawing.Size(197, 24);
             this.drawFilterById.TabIndex = 2;
             this.drawFilterById.Text = "Добавить новый фильтр";
             this.drawFilterById.UseVisualStyleBackColor = true;
@@ -363,7 +363,7 @@
             0,
             0});
             this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(174, 20);
+            this.numericUpDown4.Size = new System.Drawing.Size(197, 20);
             this.numericUpDown4.TabIndex = 4;
             this.numericUpDown4.Value = new decimal(new int[] {
             20,
@@ -377,7 +377,7 @@
             this.addNewFilterToGraph.Location = new System.Drawing.Point(2, 74);
             this.addNewFilterToGraph.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.addNewFilterToGraph.Name = "addNewFilterToGraph";
-            this.addNewFilterToGraph.Size = new System.Drawing.Size(174, 24);
+            this.addNewFilterToGraph.Size = new System.Drawing.Size(197, 24);
             this.addNewFilterToGraph.TabIndex = 3;
             this.addNewFilterToGraph.Text = "Очистить все ";
             this.addNewFilterToGraph.UseVisualStyleBackColor = true;
@@ -390,7 +390,7 @@
             this.label4.Location = new System.Drawing.Point(2, 181);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(174, 20);
+            this.label4.Size = new System.Drawing.Size(197, 20);
             this.label4.TabIndex = 5;
             this.label4.Text = "Кол-во в поколении";
             // 
@@ -401,7 +401,7 @@
             this.label2.Location = new System.Drawing.Point(2, 101);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(174, 20);
+            this.label2.Size = new System.Drawing.Size(197, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "Номер канала";
             // 
@@ -416,7 +416,7 @@
             0,
             0});
             this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(174, 20);
+            this.numericUpDown2.Size = new System.Drawing.Size(197, 20);
             this.numericUpDown2.TabIndex = 6;
             this.numericUpDown2.Value = new decimal(new int[] {
             1,
@@ -431,7 +431,7 @@
             this.label3.Location = new System.Drawing.Point(2, 141);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(174, 20);
+            this.label3.Size = new System.Drawing.Size(197, 20);
             this.label3.TabIndex = 7;
             this.label3.Text = "Кол-во поколений";
             // 
@@ -451,7 +451,7 @@
             0,
             0});
             this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(174, 20);
+            this.numericUpDown3.Size = new System.Drawing.Size(197, 20);
             this.numericUpDown3.TabIndex = 8;
             this.numericUpDown3.Value = new decimal(new int[] {
             30,
@@ -468,10 +468,10 @@
             chartArea2.Name = "ChartArea1";
             this.chart2.ChartAreas.Add(chartArea2);
             this.chart2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chart2.Location = new System.Drawing.Point(184, 234);
+            this.chart2.Location = new System.Drawing.Point(207, 298);
             this.chart2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.chart2.Name = "chart2";
-            this.chart2.Size = new System.Drawing.Size(727, 226);
+            this.chart2.Size = new System.Drawing.Size(819, 290);
             this.chart2.TabIndex = 2;
             this.chart2.Text = "chart2";
             // 
@@ -489,7 +489,7 @@
             this.tableLayoutPanel3.Controls.Add(this.radioButton1, 0, 7);
             this.tableLayoutPanel3.Controls.Add(this.numericUpDown5, 0, 5);
             this.tableLayoutPanel3.Controls.Add(this.numericUpDown6, 0, 3);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(2, 234);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(2, 298);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 10;
@@ -644,7 +644,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(913, 487);
+            this.ClientSize = new System.Drawing.Size(1028, 615);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;

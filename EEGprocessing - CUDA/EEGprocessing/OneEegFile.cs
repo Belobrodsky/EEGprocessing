@@ -39,6 +39,37 @@ namespace EEGprocessing
         }
 
 
+
+        public void Normilize()
+        {
+
+            float sr = this._chanels[0].Average();
+            ////для 0 среднего
+            for (int ii = 0; ii < this._chanels[0].Count; ii++)
+            {
+                this._chanels[0][ii] -= sr;
+            }
+
+            float A = new float();
+
+            A = (float)0;
+            //для нахождения энергии начального
+            for (int ii = 0; ii < this._chanels[0].Count; ii++)
+            {
+                A = A + this._chanels[0][ii] * this._chanels[0][ii];
+            }
+
+            //для нормализации каждого
+            for (int ii = 0; ii < this._chanels[0].Count; ii++)
+            {
+                this._chanels[0][ii] = this._chanels[0][ii] / ((float)Math.Sqrt(A));
+            }
+        
+        
+        }
+
+
+
         /// <summary>
         /// Конструктор сожрет только число каналов ЭЭГ файла
         /// </summary>
@@ -117,6 +148,44 @@ namespace EEGprocessing
             }//while по всем строкам файла 
             this._countOfData = i;
             myReader.Close();
+
+
+            this.Normilize();
+
+            //НОРМИРОВКА
+            //for (int k = 0; k < MyConst.COUNTOFCHANEL; k++)
+            //int k = 0;
+            //{
+
+               //float sr = this._chanels[0].Average();
+               // ////для 0 среднего
+               //for (int ii = 0; ii < this._chanels[0].Count; i++)
+               //{
+               //    this._chanels[0][ii] -= sr;
+               //}
+
+                //float A = new float();
+
+                //A = (float)0;
+                ////для нахождения энергии начального
+                //for (int ii = 0; ii < this._chanels[0].Count; i++)
+                //{
+                //    A = A + this._chanels[0][ii] * this._chanels[0][ii];
+                //}
+
+                ////для нормализации каждого
+                //for (int ii = 0; ii < this._chanels[0].Count; i++)
+                //{
+                //    this._chanels[0][ii] = this._chanels[0][ii] / ((float)Math.Sqrt(A));
+                //}
+
+           // }
+
+
+
+        
+        
+        
         }
 
 
