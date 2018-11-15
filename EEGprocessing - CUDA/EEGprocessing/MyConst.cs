@@ -199,6 +199,13 @@ namespace EEGprocessing
             return sum;
         }
 
+       
+       /// <summary>
+        /// возвращает сколько элементов массива files имеют значения большее или РАВНО чем maxvalue
+       /// </summary>
+       /// <param name="files"></param>
+       /// <param name="maxvalue"></param>
+       /// <returns></returns>
         public static float RocCountOfInvolveArrayBig(List<float> files, float maxvalue)
         {
             float sum = (float)0;
@@ -211,6 +218,14 @@ namespace EEGprocessing
               return sum;
         }
 
+
+        
+       /// <summary>
+        /// возвращает сколько элементов массива files имеют значения СТРОГО меньшее чем maxvalue
+       /// </summary>
+       /// <param name="files"></param>
+       /// <param name="maxvalue"></param>
+       /// <returns></returns>
         public static float RocCountOfInvolveArraySmall(List<float> files, float maxvalue)
         {
             float sum = (float)0;

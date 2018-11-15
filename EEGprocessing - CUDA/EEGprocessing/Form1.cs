@@ -958,7 +958,7 @@ namespace EEGprocessing
             int aaa = new int();
 
 
-            StreamWriter mywr2 = new StreamWriter("ABS_MAX_KS.csv", false, Encoding.GetEncoding("Windows-1251"));
+            StreamWriter mywr2 = new StreamWriter("ABS_MAX_KS_FROM_ROC.csv", false, Encoding.GetEncoding("Windows-1251"));
             List<float> temp = new List<float>(); //все максимальные значения, для нахождения макимума из максимумов
 
             List<float> tempMain = new List<float>();
@@ -1059,7 +1059,7 @@ namespace EEGprocessing
             
 
 
-            for (int i = 0; i < 101; i = i + 1)
+            for (int i = 0; i < 101; i ++)
             {
                 mywr.WriteLine();
                 mywr.WriteLine("Порог " + i.ToString() + "% от максимального значения;");
@@ -1068,6 +1068,7 @@ namespace EEGprocessing
                 if (tempMain.Average() > tempOther.Average())
                 {
                     RocCountMain = MyConst.RocCountOfInvolveArrayBig(tempMain, i * AbsMaxConv / 100);
+                   
                     RocCountOther = AbsCountSecondState - MyConst.RocCountOfInvolveArrayBig(tempOther, i * AbsMaxConv / 100);
 
                 }

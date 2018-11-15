@@ -187,7 +187,7 @@
             this.фильтрыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.print0genFilter});
             this.фильтрыToolStripMenuItem.Name = "фильтрыToolStripMenuItem";
-            this.фильтрыToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.фильтрыToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.фильтрыToolStripMenuItem.Text = "Фильтры";
             // 
             // print0genFilter
